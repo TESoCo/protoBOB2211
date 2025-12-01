@@ -64,17 +64,17 @@ public class APUServicioImp implements APUServicio {
         List<Apu> apusImportados = new ArrayList<>();
 
         try {
-                CSVParser parser = new CSVParserBuilder()
-                        .withSeparator(',')
-                        .withQuoteChar('"')
-                        .withEscapeChar('\\')
-                        .build();
+            CSVParser parser = new CSVParserBuilder()
+                    .withSeparator(',')
+                    .withQuoteChar('"')
+                    .withEscapeChar('\\')
+                    .build();
 
 
-                CSVReader reader = new CSVReaderBuilder(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))
-                        .withCSVParser(parser)
-                        .build();
-                List<String[]> records = reader.readAll();
+            CSVReader reader = new CSVReaderBuilder(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))
+                    .withCSVParser(parser)
+                    .build();
+            List<String[]> records = reader.readAll();
             reader.close();
 
 
@@ -177,14 +177,14 @@ public class APUServicioImp implements APUServicio {
         }
 
         try { String cleanValue = value.replace("\"", "")
-                    .replace(",", "") // Remover separadores de miles
-                    .replace(" ", "")
-                    .trim();
+                .replace(",", "") // Remover separadores de miles
+                .replace(" ", "")
+                .trim();
 
             // Si está vacío después de limpiar, retornar cero
             if (cleanValue.isEmpty()) {
                 return BigDecimal.ZERO;
-                }
+            }
 
             return new BigDecimal(cleanValue);
 
