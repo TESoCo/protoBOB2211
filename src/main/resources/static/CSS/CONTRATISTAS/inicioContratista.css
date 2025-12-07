@@ -394,6 +394,15 @@ tr:hover {
         pointer-events: none;
     }
 
+    .table-container {
+        /* Asegura que el contenedor tome todo el ancho disponible */
+        width: 100%;
+        /* La clave: Si el contenido excede el ancho (overflow), permite el desplazamiento */
+        overflow-x: auto;
+        /* Opcional: Asegura que el scroll vertical siga oculto (ya está cubierto por overflow: hidden en el original) */
+        overflow-y: hidden;
+    }
+
     /* 5. Restaurar la visibilidad de texto y centrado */
     .sidebar-header h1, .nav-links span {
       display: block; /* Muestra el texto cuando el sidebar está maximizado en móvil */

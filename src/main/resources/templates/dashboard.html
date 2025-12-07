@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Building Optimization Baseline - Dashboard</title>
-  <link rel="stylesheet" href="CSS/dashboard.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" th:href="@{/CSS/dashboard.css}">
+  <link rel="stylesheet" th:href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <!-- Leaflet CSS for map -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -71,7 +71,7 @@
       </div>
       <!-- Proveedores - Con permisos de proveedor -->
       <div sec:authorize="hasAnyAuthority('CREAR_PROVEEDOR', 'EDITAR_PROVEEDOR')">
-        <li><a href="#"><i class="fas fa-truck-loading"></i> <span>Proveedores</span></a></li>
+        <li><a href="/proveedores"><i class="fas fa-truck-loading"></i> <span>Proveedores</span></a></li>
       </div>
 
       <!-- Menu items for users with report permissions -->
@@ -108,8 +108,7 @@
     <div class="header">
       <h2>Panel de Control</h2>
       <div class="user-menu">
-        <div class="user-avatar">
-        </div>
+
         <div>Bienvenido <span th:text="${nombreUsuario}"></span></div>
         <a th:href="@{/perfil}" class="btn btn-profile">
           <i class="fas fa-user"></i> Perfil
